@@ -3,94 +3,103 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>你的名字 · 个人主页</title>
-  <meta name="description" content="个人主页与作品集" />
+  <title>你的名字 · Portfolio</title>
+  <meta name="description" content="个人主页与作品集 · 动效版" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- 自定义鼠标 -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
   <header class="nav">
-    <a class="logo" href="#top">你的名字</a>
+    <a class="logo" href="#hero" data-goto>你的名字<sup>©</sup></a>
     <nav>
-      <a href="#about">关于</a>
-      <a href="#projects">作品</a>
-      <a href="#skills">技能</a>
-      <a href="#contact">联系</a>
-      <button id="theme-toggle" class="theme-toggle" aria-label="切换深浅色">🌙</button>
+      <a href="#about" data-goto>关于</a>
+      <a href="#works" data-goto>作品</a>
+      <a href="#reel" data-goto>视频</a>
+      <a href="#skills" data-goto>技能</a>
+      <a href="#contact" data-goto>联系</a>
     </nav>
   </header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="avatar" aria-hidden="true">你</div>
-      <h1>你好，我是 <span class="accent">你的名字</span></h1>
-      <p class="tagline">设计师 / 开发者 / 爱折腾的人 —— 用代码把想法变成现实。</p>
-      <div class="hero-actions">
-        <a class="btn primary" href="#projects">看看作品</a>
-        <a class="btn" href="#contact">联系我</a>
-      </div>
-    </section>
+  <div class="viewport">
+    <main class="track">
 
-    <section id="about" class="section reveal">
-      <h2>关于我</h2>
-      <p>
-        在这里写一段自我介绍：你是谁、在做什么、对什么感兴趣。
-        比如：我是一名热爱前端和设计的学生，喜欢做好看又好用的小东西，
-        最近在用 AI 辅助编程（vibecoding）快速把点子变成产品。
-      </p>
-    </section>
+      <!-- 1. 首屏：粒子 -->
+      <section id="hero" class="panel hero">
+        <canvas id="particles" aria-label="会随鼠标移动和点击变换形态的粒子动画"></canvas>
+        <div class="hero-meta">
+          <p class="eyebrow">Portfolio — 2026</p>
+          <p class="tagline">设计师 / 开发者 / 爱折腾的人<br />用代码把想法变成会动的东西。</p>
+        </div>
+        <p class="hint"><span class="hint-dot"></span>移动鼠标拨动粒子 · 点击切换形态</p>
+        <p class="scroll-hint">滚动 →</p>
+      </section>
 
-    <section id="projects" class="section reveal">
-      <h2>作品集</h2>
-      <div class="grid">
-        <article class="card">
-          <div class="card-cover c1">🎮</div>
-          <h3>小游戏项目</h3>
-          <p>一句话介绍这个项目做了什么、亮点是什么。</p>
-          <div class="tags"><span>JavaScript</span><span>Canvas</span></div>
-          <a class="card-link" href="#">查看 →</a>
-        </article>
-        <article class="card">
-          <div class="card-cover c2">🛠️</div>
-          <h3>效率小工具</h3>
-          <p>一句话介绍这个项目做了什么、亮点是什么。</p>
-          <div class="tags"><span>HTML</span><span>CSS</span></div>
-          <a class="card-link" href="#">查看 →</a>
-        </article>
-        <article class="card">
-          <div class="card-cover c3">🎨</div>
-          <h3>设计作品</h3>
-          <p>一句话介绍这个项目做了什么、亮点是什么。</p>
-          <div class="tags"><span>Figma</span><span>UI</span></div>
-          <a class="card-link" href="#">查看 →</a>
-        </article>
-      </div>
-    </section>
+      <!-- 2. 关于 -->
+      <section id="about" class="panel about">
+        <p class="eyebrow">01 — 关于我</p>
+        <h2 class="kinetic" data-text="把想法变成会动的东西"></h2>
+        <p class="lead">
+          在这里写一段自我介绍：你是谁、在做什么、对什么感兴趣。
+          比如：我是一名热爱前端和动效设计的学生，喜欢做好看又好玩的交互，
+          最近在用 AI 辅助编程（vibecoding）快速把点子变成产品。
+        </p>
+      </section>
 
-    <section id="skills" class="section reveal">
-      <h2>技能</h2>
-      <ul class="skills">
-        <li>HTML / CSS</li>
-        <li>JavaScript</li>
-        <li>React</li>
-        <li>Python</li>
-        <li>UI 设计</li>
-        <li>AI 辅助开发</li>
-      </ul>
-    </section>
+      <!-- 3. 作品 -->
+      <section id="works" class="panel works">
+        <p class="eyebrow">02 — 作品集 <span class="muted">（悬停播放）</span></p>
+        <div class="cards">
+          <article class="card" data-hover>
+            <div class="card-media"><video src="assets/showreel.mp4" muted loop playsinline preload="metadata" poster="assets/showreel-poster.jpg"></video></div>
+            <div class="card-body"><h3>小游戏项目</h3><p>一句话介绍这个项目做了什么。</p><span class="tag">JavaScript · Canvas</span></div>
+          </article>
+          <article class="card" data-hover>
+            <div class="card-media"><video src="assets/showreel.mp4" muted loop playsinline preload="metadata" poster="assets/showreel-poster.jpg" style="filter:hue-rotate(110deg)"></video></div>
+            <div class="card-body"><h3>效率小工具</h3><p>一句话介绍这个项目做了什么。</p><span class="tag">HTML · CSS</span></div>
+          </article>
+          <article class="card" data-hover>
+            <div class="card-media"><video src="assets/showreel.mp4" muted loop playsinline preload="metadata" poster="assets/showreel-poster.jpg" style="filter:hue-rotate(220deg)"></video></div>
+            <div class="card-body"><h3>动效设计</h3><p>一句话介绍这个项目做了什么。</p><span class="tag">Motion · UI</span></div>
+          </article>
+        </div>
+      </section>
 
-    <section id="contact" class="section reveal">
-      <h2>联系我</h2>
-      <p>有合作、想法或只是想打个招呼，都欢迎联系！</p>
-      <div class="contact-links">
-        <a class="btn" href="mailto:you@example.com">✉️ 邮箱</a>
-        <a class="btn" href="https://github.com/" target="_blank" rel="noopener">🐙 GitHub</a>
-      </div>
-    </section>
-  </main>
+      <!-- 4. 视频 -->
+      <section id="reel" class="panel reel">
+        <p class="eyebrow">03 — Showreel</p>
+        <div class="stage" data-hover>
+          <video id="reel-video" src="assets/showreel.mp4" poster="assets/showreel-poster.jpg" loop playsinline></video>
+          <button class="play" aria-label="播放 / 暂停"><span class="icon"></span><span class="label">播放</span></button>
+          <div class="timeline"><span></span></div>
+        </div>
+      </section>
 
-  <footer class="footer">
-    © <span id="year"></span> 你的名字 · Made with vibecoding
-  </footer>
+      <!-- 5. 技能 -->
+      <section id="skills" class="panel skills">
+        <p class="eyebrow">04 — 技能 <span class="muted">（滚得越快，跑得越快）</span></p>
+        <div class="marquee" data-dir="1"><div class="marquee-inner">HTML / CSS ✦ JavaScript ✦ React ✦ Canvas ✦ 动效设计 ✦ </div></div>
+        <div class="marquee outline" data-dir="-1"><div class="marquee-inner">Python ✦ UI 设计 ✦ Figma ✦ AI 辅助开发 ✦ Vibecoding ✦ </div></div>
+      </section>
+
+      <!-- 6. 联系 -->
+      <section id="contact" class="panel contact">
+        <p class="eyebrow">05 — 联系我</p>
+        <h2 class="big">一起做点<br /><em>好玩的东西</em>？</h2>
+        <div class="contact-links">
+          <a class="magnet" href="mailto:you@example.com" data-hover><span>✉ 邮箱</span></a>
+          <a class="magnet" href="https://github.com/" target="_blank" rel="noopener" data-hover><span>GitHub ↗</span></a>
+        </div>
+        <footer class="footer">© <span id="year"></span> 你的名字 · Made with vibecoding</footer>
+      </section>
+
+    </main>
+  </div>
+
+  <div class="progress" aria-hidden="true"><span></span></div>
+  <div class="rotate-tip">📱 横屏浏览体验更佳</div>
 
   <script src="script.js"></script>
 </body>
