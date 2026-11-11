@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>你的名字 · 个人主页</title>
+  <meta name="description" content="个人主页与作品集" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="nav">
+    <a class="logo" href="#top">你的名字</a>
+    <nav>
+      <a href="#about">关于</a>
+      <a href="#projects">作品</a>
+      <a href="#skills">技能</a>
+      <a href="#contact">联系</a>
+      <button id="theme-toggle" class="theme-toggle" aria-label="切换深浅色">🌙</button>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="avatar" aria-hidden="true">你</div>
+      <h1>你好，我是 <span class="accent">你的名字</span></h1>
+      <p class="tagline">设计师 / 开发者 / 爱折腾的人 —— 用代码把想法变成现实。</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#projects">看看作品</a>
+        <a class="btn" href="#contact">联系我</a>
+      </div>
+    </section>
+
+    <section id="about" class="section reveal">
+      <h2>关于我</h2>
+      <p>
+        在这里写一段自我介绍：你是谁、在做什么、对什么感兴趣。
+        比如：我是一名热爱前端和设计的学生，喜欢做好看又好用的小东西，
+        最近在用 AI 辅助编程（vibecoding）快速把点子变成产品。
+      </p>
+    </section>
+
+    <section id="projects" class="section reveal">
+      <h2>作品集</h2>
+      <div class="grid">
+        <article class="card">
+          <div class="card-cover c1">🎮</div>
+          <h3>小游戏项目</h3>
+          <p>一句话介绍这个项目做了什么、亮点是什么。</p>
+          <div class="tags"><span>JavaScript</span><span>Canvas</span></div>
+          <a class="card-link" href="#">查看 →</a>
+        </article>
+        <article class="card">
+          <div class="card-cover c2">🛠️</div>
+          <h3>效率小工具</h3>
+          <p>一句话介绍这个项目做了什么、亮点是什么。</p>
+          <div class="tags"><span>HTML</span><span>CSS</span></div>
+          <a class="card-link" href="#">查看 →</a>
+        </article>
+        <article class="card">
+          <div class="card-cover c3">🎨</div>
+          <h3>设计作品</h3>
+          <p>一句话介绍这个项目做了什么、亮点是什么。</p>
+          <div class="tags"><span>Figma</span><span>UI</span></div>
+          <a class="card-link" href="#">查看 →</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" class="section reveal">
+      <h2>技能</h2>
+      <ul class="skills">
+        <li>HTML / CSS</li>
+        <li>JavaScript</li>
+        <li>React</li>
+        <li>Python</li>
+        <li>UI 设计</li>
+        <li>AI 辅助开发</li>
+      </ul>
+    </section>
+
+    <section id="contact" class="section reveal">
+      <h2>联系我</h2>
+      <p>有合作、想法或只是想打个招呼，都欢迎联系！</p>
+      <div class="contact-links">
+        <a class="btn" href="mailto:you@example.com">✉️ 邮箱</a>
+        <a class="btn" href="https://github.com/" target="_blank" rel="noopener">🐙 GitHub</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    © <span id="year"></span> 你的名字 · Made with vibecoding
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
