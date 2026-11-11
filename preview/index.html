@@ -1,0 +1,80 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><link rel="stylesheet" href="../assets/fonts/fonts.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1440px;background:#fff;color:#111;font-family:"Noto Serif SC",serif}
+.sans{font-family:"Inter","WenQuanYi Zen Hei",sans-serif}
+.en{font-family:"Instrument Serif",serif;font-style:italic}
+section{position:relative}
+.note{position:absolute;z-index:9;font:12px "WenQuanYi Zen Hei",sans-serif;color:#fff;background:#1d3bff;padding:5px 10px;border-radius:3px;max-width:260px;line-height:1.5}
+.note::before{content:"◆ ";}
+nav{display:flex;justify-content:space-between;padding:34px 64px;font-size:14px}
+nav span{color:#999;margin-left:28px}
+.hero{height:860px}
+.hero h1{position:absolute;left:58px;top:250px;font-size:230px;font-weight:400;letter-spacing:-.04em;line-height:1}
+.hero .stroke{position:absolute;left:40px;top:330px;width:900px}
+.hero .role{position:absolute;left:66px;top:540px;font-size:64px}
+.hero .role b{font-weight:400;color:#bbb}
+.hero img{position:absolute;right:120px;top:120px;width:210px;transform:rotate(2deg)}
+.hero .small{position:absolute;right:120px;top:430px;width:210px;font-size:13px;color:#777;line-height:1.7}
+.hero .meta{position:absolute;left:66px;bottom:60px;font-size:13px;color:#777}
+.works{height:1350px}
+.w{position:absolute}.w img{width:100%;display:block}.w p{font-size:12px;color:#888;margin-top:10px;font-family:"WenQuanYi Zen Hei",sans-serif}
+.w p i{font-family:"Instrument Serif";font-size:17px;color:#111;margin-right:8px}
+.statement{height:620px;padding:120px 64px 0 280px;font-size:58px;line-height:1.45}
+.statement .dim{color:#d6d6d6}
+.statement .circ{position:relative;display:inline-block}
+.statement .circ svg{position:absolute;left:-30px;top:-14px;width:calc(100% + 60px);height:calc(100% + 28px)}
+.film{height:820px}
+.film img{position:absolute;left:220px;top:40px;width:1000px;height:600px;object-fit:cover}
+.film .cur{position:absolute;left:820px;top:300px;width:92px;height:92px;border-radius:50%;background:#fff;display:grid;place-items:center;font-size:14px}
+.index{padding:40px 64px 120px;position:relative}
+.row{display:grid;grid-template-columns:80px 1fr 200px 120px;padding:26px 0;border-top:1px solid #e8e8e8;font-size:30px;align-items:baseline}
+.row span{font-size:13px;color:#999;font-family:"WenQuanYi Zen Hei",sans-serif}
+.row.on{color:#1d3bff}
+.index img{position:absolute;left:760px;top:60px;width:230px;transform:rotate(-3deg)}
+footer{padding:80px 64px 60px;display:flex;justify-content:space-between;align-items:end;border-top:1px solid #111}
+footer .mail{font-size:96px;letter-spacing:-.03em}
+</style></head><body>
+<nav class="sans"><b>你的名字</b><div><span>作品</span><span>影像</span><span>关于</span><span>联系</span></div></nav>
+
+<section class="hero">
+  <h1>你的名字</h1>
+  <svg class="stroke" viewBox="0 0 900 120"><path d="M10 80 C 180 20, 360 110, 520 60 S 820 30, 890 70" fill="none" stroke="#1d3bff" stroke-width="22" stroke-linecap="round" opacity=".85"/></svg>
+  <div class="role">在画 <span class="en">painting</span> <b>/ 影像 / 装置</b></div>
+  <img src="../assets/works/04-blue.jpg"><p class="small sans">《蓝》局部，2025<br>布面油画</p>
+  <p class="meta sans">美术学院 · 绘画系 · 现居上海</p>
+  <div class="note" style="left:640px;top:200px">名字是墨点汇聚成形；鼠标经过时笔画微微晕开</div>
+  <div class="note" style="left:960px;top:330px">蓝色笔触从左到右"画"出来，划过名字</div>
+  <div class="note" style="left:470px;top:625px">"painting" 每隔几秒溶解变形成下一个词</div>
+  <div class="note" style="left:1000px;top:520px">小图随滚动慢速漂移，点击墨迹晕开</div>
+</section>
+
+<section class="works">
+  <div class="w" style="left:64px;top:40px;width:560px"><img src="../assets/works/01-field.jpg"><p><i>01</i>色域研究 · 2025 · 布面丙烯</p></div>
+  <div class="w" style="left:760px;top:0;width:300px"><img src="../assets/works/07-thread.jpg"><p><i>02</i>一根线 · 2024 · 数字</p></div>
+  <div class="w" style="left:700px;top:330px;width:660px"><img src="../assets/works/02-ink.jpg"><p><i>03</i>山的呼吸 · 2025 · 纸本水墨</p></div>
+  <div class="w" style="left:300px;top:870px;width:260px"><img src="../assets/works/06-grid.jpg"><p><i>04</i>网格 · 2024</p></div>
+  <div class="w" style="left:880px;top:880px;width:330px"><img src="../assets/works/08-night.jpg"><p><i>05</i>夜园 · 2023</p></div>
+  <div class="note" style="left:380px;top:300px">大小错落、不对齐；每张图滚动速度不同（视差）</div>
+  <div class="note" style="left:1080px;top:60px">出现时像揭幕一样从下往上展开</div>
+  <div class="note" style="left:960px;top:800px">悬停：图片轻微放大，鼠标变成"看"；点击：图片平滑放大成全屏</div>
+</section>
+
+<section class="statement">我相信画面应该<span class="circ">留白<svg viewBox="0 0 200 100" preserveAspectRatio="none"><ellipse cx="100" cy="52" rx="95" ry="42" fill="none" stroke="#e8361f" stroke-width="2.5" transform="rotate(-3 100 50)"/></svg></span>，<br>让<span class="dim">看的人自己走进去，<br>而不是被告知该看什么。</span>
+  <div class="note" style="left:900px;top:120px">滚动时文字一个字一个字由浅变深</div>
+  <div class="note" style="left:200px;top:180px">红圈像手画一样绕一圈画出来</div>
+</section>
+
+<section class="film">
+  <img src="../assets/works/03-lines.jpg"><div class="cur sans">播放</div>
+  <div class="note" style="left:1240px;top:80px">影像：滚动时从小窗慢慢放大到满屏；鼠标变成播放键</div>
+</section>
+
+<section class="index"><div class="row"><span>06</span>光的练习<span>数字绘画</span><span>2025</span></div>
+<div class="row on"><span>07</span>蓝色的形<span>布面油画</span><span>2025</span></div>
+<div class="row"><span>08</span>夜园<span>综合材料</span><span>2023</span></div>
+<img src="../assets/works/04-blue.jpg">
+<div class="note" style="left:1050px;top:120px">作品列表：悬停某一行，图片跟着鼠标浮出来</div></section>
+
+<footer><div class="mail">你好@example<span class="en">.com</span></div><p class="sans" style="font-size:13px;color:#888">© 2026 你的名字</p></footer>
+</body></html>
