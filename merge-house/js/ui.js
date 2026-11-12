@@ -207,6 +207,16 @@ board.addEventListener('pointerup',e=>{if(!ptr||e.pointerId!==ptr.id)return;cons
  if(p.drag){const hit=document.elementFromPoint(e.clientX,e.clientY),t=hit&&hit.closest('[data-cell]');if(t&&+t.dataset.cell!==p.i)performMove(p.i,+t.dataset.cell);else render()}else tapCell(p.i)});
 function cancelPointer(e){if(!ptr||e.pointerId!==ptr.id)return;ptr=null;$('#ghost').style.display='none';render()}
 board.addEventListener('pointercancel',cancelPointer);board.addEventListener('lostpointercapture',cancelPointer);
+// iOS / in-app WebViews (百家号, 微信…): claim touches on the board so the host's swipe-back gesture
+// and the long-press text menu never start. Dragging itself runs on pointer events, which still fire.
+const claimTouch=e=>{if(e.cancelable)e.preventDefault()};
+board.addEventListener('touchstart',claimTouch,{passive:false});
+board.addEventListener('touchmove',claimTouch,{passive:false});
+// once a drag has started, keep claiming the finger even after it leaves the board
+document.addEventListener('touchmove',e=>{if(ptr&&e.cancelable)e.preventDefault()},{passive:false});
+document.addEventListener('contextmenu',e=>e.preventDefault());
+document.addEventListener('selectstart',e=>e.preventDefault());
+document.addEventListener('dragstart',e=>e.preventDefault());
 board.addEventListener('click',e=>{if(e.detail===0){const c=e.target.closest('[data-cell]');if(c)tapCell(+c.dataset.cell)}});
 $('#selbar').addEventListener('click',e=>{const action=e.target.closest('[data-act]'),a=action&&action.dataset.act,c=P().board[selected];if(!a||!c)return;
  if(a==='chain'&&c.i!=='star0')chainModal(c.i);else if(a==='remove'){const before=snap(),r=E.remove(P(),selected);keep(before,r);if(r.ok){selected=-1;sound('tap');render();after(r)}}});

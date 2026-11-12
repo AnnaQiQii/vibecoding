@@ -341,3 +341,10 @@ body.land #amb{max-width:960px}
 .hcard.soon h3{color:#7a828c}
 .hcard.soon .teaser{font-size:11px;color:#8a7a64;margin:2px 3px 0;min-height:16px}
 .hcard .tag.lock{background:#7a828c;box-shadow:0 2px 0 #4f565e}
+
+/* no text selection / long-press menu anywhere (iOS does not always inherit these into buttons and SVG text) */
+*,*::before,*::after{-webkit-user-select:none!important;user-select:none!important;-webkit-touch-callout:none!important}
+svg,svg *{-webkit-user-select:none!important;user-select:none!important}
+img{-webkit-user-drag:none}
+#board,#board *{touch-action:none;-webkit-tap-highlight-color:transparent}
+html,body{overscroll-behavior:none}
