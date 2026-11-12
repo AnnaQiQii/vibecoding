@@ -340,11 +340,13 @@ document.querySelectorAll('.card').forEach((card) => {
     const py = (e.clientY - r.top) / r.height - 0.5;
     card.style.transform = `rotateY(${px * 14}deg) rotateX(${-py * 14}deg) translateZ(10px)`;
   });
-  card.addEventListener('pointerenter', () => video.play().catch(() => {}));
   card.addEventListener('pointerleave', () => {
     card.style.transform = '';
-    video.pause();
+    if (video) video.pause();
   });
+  // 作品卡片（带链接、用图片）只保留倾斜效果，点击直接打开作品
+  if (!video) return;
+  card.addEventListener('pointerenter', () => video.play().catch(() => {}));
   // 手机上：点一下播放 / 暂停
   if (isTouch) card.addEventListener('click', () => (video.paused ? video.play().catch(() => {}) : video.pause()));
 });
