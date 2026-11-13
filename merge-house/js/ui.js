@@ -274,5 +274,10 @@ document.getElementById('st-play').onclick=()=>{sound('tap');hideStart();const n
  if(!state.intro){introModal();$('#go').onclick=()=>{state.intro=true;save();$('#modal').hidden=true;play(n)}}else play(n)};
 document.getElementById('st-levels').onclick=()=>{sound('tap');hideStart();if(!state.intro)introModal();else showHome()};
 addEventListener('resize',layoutStart);addEventListener('orientationchange',()=>setTimeout(layoutStart,250));if(window.visualViewport)visualViewport.addEventListener('resize',layoutStart);
+// ---------- bottom safe-area strip follows the current screen's background ----------
+function paintSafe(){const el=document.getElementById('safe-fill');if(!el)return;
+ if(screen==='game'){try{const th=themeOf(E.levelDef(P().n)),T=THEMES[th],pat=themeBg(th).split('),linear-gradient')[0]+')';el.style.background=pat+','+T.bg[1];el.style.backgroundPosition='center top'}catch(e){el.style.background='#f7efdc'}}
+ else el.style.background='#f7efdc'}
+{const wrap=f=>function(){const r=f.apply(this,arguments);paintSafe();return r};render=wrap(render);showHome=wrap(showHome);showLevels=wrap(showLevels);showStart=wrap(showStart)}
 render();showStart();
 window.__game={get state(){return state},E};

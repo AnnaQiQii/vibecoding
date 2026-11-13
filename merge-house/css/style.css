@@ -348,3 +348,9 @@ svg,svg *{-webkit-user-select:none!important;user-select:none!important}
 img{-webkit-user-drag:none}
 #board,#board *{touch-action:none;-webkit-tap-highlight-color:transparent}
 html,body{overscroll-behavior:none}
+
+/* bottom 86px safe area: decoration only (platform rule: no buttons or key text here, background may extend) */
+#safe-fill{position:fixed;left:50%;bottom:0;width:100%;max-width:480px;height:86px;-webkit-transform:translateX(-50%);transform:translateX(-50%);z-index:5;pointer-events:none;background:#f7efdc;transition:background .6s}
+#safe-fill::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:transparent;transition:background .2s}
+.modal:not([hidden]) ~ #safe-fill::after{background:#1a2630cc}
+body.land #safe-fill{max-width:none}
